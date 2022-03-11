@@ -6,7 +6,7 @@
 /*   By: rliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 15:14:24 by rliu              #+#    #+#             */
-/*   Updated: 2022/03/11 13:09:20 by rliu             ###   ########.fr       */
+/*   Updated: 2022/03/11 14:31:55 by rliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,28 @@ int check_mapname(char *mapname)
 
 	str = 0;
 	len = 0;
-	str = ft_strrcher(ma:wqpname, '.');
+	str = ft_strrcher(mapname, '.');
 	if (str)
 	{
 		len = ft_strrchr(str);
 		if (ft_memcmp(str, ".ber", len) == 0)
 			return (1);
 	}
+	else
+		write()
 	return (0);
 }
+
+int check_map()
 
 int	main(int argc, char **argv)
 {
 	t_play	play_sl;
 	
-	if (argc == 2 && check_arg(argv[1]))
+	if (argc == 2 && check_mapname(argv[1]))
 	{
 
-		
+		init_map()
 
 	}	
 
