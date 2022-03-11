@@ -6,7 +6,7 @@
 /*   By: rliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 15:14:24 by rliu              #+#    #+#             */
-/*   Updated: 2022/03/11 14:31:55 by rliu             ###   ########.fr       */
+/*   Updated: 2022/03/11 17:00:57 by rliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,27 @@ int check_mapname(char *mapname)
 			return (1);
 	}
 	else
-		write()
+		ft_putstr_fd("File name error, please check the name of your map file!", 1);
 	return (0);
 }
 
-int check_map()
+void	init_map(t_play *play, char *path)
+{
+	int fd;
+
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+	{
+		ft_putstr_fd("File error, can't open", 1);
+		exit (1);
+	}
+	while (fd)
+	{
+		
+	}
+	
+
+}
 
 int	main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: rliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 12:24:12 by rliu              #+#    #+#             */
-/*   Updated: 2022/03/11 12:38:51 by rliu             ###   ########.fr       */
+/*   Updated: 2022/03/11 17:01:08 by rliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef SO_LONG_H
@@ -35,5 +35,6 @@ tpyedef struct s_play
 {
     void    *mlx_self;
     void    *mlx_win;
+    
 
 } t_play;
