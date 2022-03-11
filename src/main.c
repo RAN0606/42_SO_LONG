@@ -26,12 +26,30 @@ int check_mapname(char *mapname)
 		if (ft_memcmp(str, ".ber", len) == 0)
 			return (1);
 	}
-	else
-		write()
-	return (0);
+        else
+                ft_putstr_fd("File name error, please check the name of your map file!", 1);
+        return (0);
 }
 
-int check_map()
+void    init_map(t_play *play, char *path)
+{
+        int fd;
+
+        fd = open(path, O_RDONLY);
+        if (fd < 0)
+        {
+                ft_putstr_fd("File error, can't open", 1);
+                exit (1);
+        }
+        while (fd)
+        {
+
+        }
+
+
+}
+
+
 
 int	main(int argc, char **argv)
 {
