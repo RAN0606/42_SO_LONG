@@ -6,7 +6,7 @@
 #    By: rliu <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/09 10:44:26 by rliu              #+#    #+#              #
-#    Updated: 2022/03/15 11:21:09 by rliu             ###   ########.fr        #
+#    Updated: 2022/03/16 16:44:56 by rliu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,16 @@ NAME	= so_long
 
 CFLAG	= -Wall -Wextra -Werror
 
-IFLAGS	= -I. -I./libft -I./mlx_linux/
-LFLAGS	=-L./libft -lft -L./mlx -lmlx -framework OpenGL -framework AppKit
+IFLAGS	= -I. -I./libft -I./mlx
+
+LFLAGS	= -L./libft -lft -L./mlx -lmlx -framework OpenGL -framework AppKit
 
 
 MLX_DIR	= ./mlx
 
 MLX		= libmlx.dylib
 
-SRC		= testimage.c
+SRC		= read_map.c
 
 OBJ		= $(SRC:%.c=%.o)
 
@@ -40,7 +41,7 @@ $(NAME):	$(OBJ)
 			$(MAKE) -C libft
 			$(MAKE) -C $(MLX_DIR)
 			cp $(MLX_DIR)/$(MLX) .
-			gcc $(CFLAGS) $(OBJ) $(IFLAGS) $(LFLAGS) -o $@
+			gcc $(CFLAGS) $(IFLAGS) $(LFLAGS) $(OBJ) -o $@
 
 all:		$(NAME)
 
