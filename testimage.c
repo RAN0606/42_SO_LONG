@@ -36,7 +36,7 @@ int	ft_keyhook(int keycode, t_play *play)
 	return (0);
 }
 
-size_t	ft_strlen_non(char *str)
+/*size_t	ft_strlen_non(char *str)
 {
 	size_t len;
 
@@ -125,23 +125,45 @@ int ft_checkmap_c(t_map map)
 		return (0)
 	}
 	return (1);
-}
+}*/
 
-void ft_putimg_set()
+void ft_putimg_set(t_play play)
+{
+	int line = 0;
+	int col = 0;
+	while (line < 4)
+	{
+		col = 0;
+		while (col < 9)
+		{
+			play.x	= col*(play.img_height-1);
+			play.y = line*(play.img_width-1);
+			mlx_put_image_to_window(play.mlx_self, play.mlx_win, play.img, play.x, play.y);
+			col++;
+		}
+		line++;
+	}
+}
 
 int	main(void)
 {
 	t_play	play;
 	t_map	map;
-	char	relative_path[] = "./cat.xpm";
+	char	relative_path[] = "./Purple.xpm";
+	int		win_x;
+	int 	win_y;
 
 	play.x = 0;
 	play.y = 0;
 	play.mlx_self = mlx_init();
-	play.mlx_win = mlx_new_window(play.mlx_self, 1920, 1080, "Hello world!");
-	play.img_1 = mlx_xpm_file_to_image(play.mlx_self, relative_path, &(play.img_width), &(play.img_height));
-	mlx_put_image_to_window(play.mlx_self, play.mlx_win, play.img, play.x, play.y);
+	play.img = mlx_xpm_file_to_image(play.mlx_self, relative_path, &(play.img_width), &(play.img_height));	
+	win_x = (play.img_width-1) * 9;
+	win_y = (play.img_height-1) * 4;
+	play.mlx_win = mlx_new_window(play.mlx_self, win_x, win_y, "so_long");
+	printf("size: %d", mlx_get_screen_size(play.mlx_self, &win_x, &win_y));
+	//mlx_put_image_to_window(play.mlx_self, play.mlx_win, play.img, play.x, play.y);
+	ft_putimg_set(play);
 	mlx_key_hook(play.mlx_win, ft_keyhook, &play);
-//	mlx_mouse_get_pos(mlx, mlx_win, &img_width, &img_height);
+//	mlx_mouse_get_pos(mlx, mlx_win, &img_width, &img_height);	
 	mlx_loop(play.mlx_self);
 }
