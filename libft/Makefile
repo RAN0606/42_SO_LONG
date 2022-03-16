@@ -6,7 +6,7 @@
 #    By: rliu <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 11:11:09 by rliu              #+#    #+#              #
-#    Updated: 2022/03/15 12:20:56 by rliu             ###   ########.fr        #
+#    Updated: 2022/03/16 16:36:37 by rliu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 SRCS =	ft_isalpha.c \
@@ -42,8 +42,9 @@ SRCS =	ft_isalpha.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c\
-		get_next_line.c
+		ft_putnbr_fd.c \
+		get_next_line.c \
+		ft_strjoin_free.c
 
 
 BONUS = ft_lstnew.c \
@@ -61,7 +62,7 @@ OBJS = $(SRCS:.c=.o)
 
 OBJB = $(BONUS:.c=.o)
 
-FLAGS = -Wall -Wextra -Werror -fPIE
+FLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 

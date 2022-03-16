@@ -6,7 +6,7 @@
 /*   By: rliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 20:19:52 by rliu              #+#    #+#             */
-/*   Updated: 2022/03/15 12:17:32 by rliu             ###   ########.fr       */
+/*   Updated: 2022/03/16 16:37:01 by rliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
 
-// gnl
+// supplimentaire
 char	*get_next_line(int fd);
+char	*ft_strjoin_free(char *s1, char *s2);
+
 #endif
