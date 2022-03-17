@@ -1,28 +1,23 @@
 #include "mlx.h"
 #include "so_long.h"
 
-typedef struct s_map
-{
-	char	*maplist;
-	int		**maparray;
-	int		mapline;
-	int		mapcol;
-} t_map;
-
 typedef struct s_play
 {
     void    *mlx_self;
     void    *mlx_win;
-	void	*img;
-	int		img_width;
-	int		img_height;
+	void	*img1;
+	void	*img2;
+	int		img_width1;
+	int		img_height1;
+	int		img_width2;
+	int		img_height2;
 	char	*relative_path;
 	int		x;
 	int		y;
 
 } t_play;
 
-int	ft_keyhook(int keycode, t_play *play)
+/*int	ft_keyhook(int keycode, t_play *play)
 {
 	if (keycode == KEY_S_DOWN)
 		(*play).y = (*play).y + (*play).img_height;
@@ -127,7 +122,7 @@ int ft_checkmap_c(t_map map)
 	return (1);
 }*/
 
-void ft_putimg_set(t_play play)
+/*void ft_putimg_set(t_play play)
 {
 	int line = 0;
 	int col = 0;
@@ -143,9 +138,9 @@ void ft_putimg_set(t_play play)
 		}
 		line++;
 	}
-}
+}*/
 
-int	main(void)
+/*int	main(void)
 {
 	t_play	play;
 	t_map	map;
@@ -166,4 +161,31 @@ int	main(void)
 	mlx_key_hook(play.mlx_win, ft_keyhook, &play);
 //	mlx_mouse_get_pos(mlx, mlx_win, &img_width, &img_height);	
 	mlx_loop(play.mlx_self);
+}*/
+int	main(void)
+{
+	t_play	play;
+	t_map	map;
+	char	relative_path1[] = "./img/Fall.xpm";
+	char	relative_path2[] = "./img/Jump.xpm";
+
+	play.x = 0;
+	play.y = 0;
+	play.mlx_self = mlx_init();
+	play.img1 = mlx_xpm_file_to_image(play.mlx_self, relative_path1, &(play.img_width1), &(play.img_height1));
+	play.img2 = mlx_xpm_file_to_image(play.mlx_self, relative_path2, &(play.img_width2), &(play.img_height2));	
+//	win_x = (play.img_width-1) * 9;
+//	win_y = (play.img_height-1) * 4;
+	play.mlx_win = mlx_new_window(play.mlx_self, 900, 400, "so_long");
+	mlx_put_image_to_window(play.mlx_self, play.mlx_win, play.img1, 0, 0);	
+		mlx_put_image_to_window(play.mlx_self, play.mlx_win, play.img2, 0, 0);
+	}
+//	printf("size: %d", mlx_get_screen_size(play.mlx_self, &win_xi, &win_y));
+	//mlx_put_image_to_window(play.mlx_self, play.mlx_win, play.img, play.x, play.y);
+//	ft_putimg_set(play);
+//	mlx_key_hook(play.mlx_win, ft_keyhook, &play);
+//	mlx_mouse_get_pos(mlx, mlx_win, &img_width, &img_height);	
+	mlx_loop(play.mlx_self);
 }
+
+
