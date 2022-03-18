@@ -6,12 +6,13 @@
 /*   By: rliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 12:24:12 by rliu              #+#    #+#             */
-/*   Updated: 2022/03/15 10:50:07 by rliu             ###   ########.fr       */
+/*   Updated: 2022/03/18 20:44:21 by rliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "mlx.h"
 # include <unistd.h>
 # include <stdio.h>
 # include "libft.h"	
@@ -32,6 +33,18 @@
 #  define KEY_S_DOWN 115
 #  define KEY_D_RIGHT 100
 # endif
+
+typedef struct s_map
+{
+	char *maplist;
+	char **maparray;
+	int	mapcol;
+	int	mapline;
+}t_map;
+
+/*************************************************************/
+void    ft_map_exit(char *message, t_map *map);
+int	ft_checkmap(t_map *map, char *map_path);
 
 #endif
 

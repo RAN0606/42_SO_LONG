@@ -6,7 +6,7 @@
 /*   By: rliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:11:50 by rliu              #+#    #+#             */
-/*   Updated: 2022/03/17 16:29:51 by rliu             ###   ########.fr       */
+/*   Updated: 2022/03/18 20:41:20 by rliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -27,7 +27,7 @@ void	ft_map_exit(char *message, t_map *map)
 		free(map->maplist);
 	if (map->maparray)
 		free(map->maparray);
-	free(map);
+//	free(map);
 	exit (1);
 }
 
@@ -139,7 +139,7 @@ int ft_checkmap(t_map *map, char *map_path)
 	return(0);
 }
 
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)
 {
 	t_map	*map;
 
@@ -161,4 +161,4 @@ int	main(int argc, char **argv)
 		}
 	}
 	
-}
+}*/
