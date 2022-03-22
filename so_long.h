@@ -6,7 +6,7 @@
 /*   By: rliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 12:24:12 by rliu              #+#    #+#             */
-/*   Updated: 2022/03/18 20:44:21 by rliu             ###   ########.fr       */
+/*   Updated: 2022/03/22 18:45:30 by rliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef SO_LONG_H
@@ -15,7 +15,7 @@
 # include "mlx.h"
 # include <unistd.h>
 # include <stdio.h>
-# include "libft.h"	
+# include "libft/libft.h"	
 # include "fcntl.h"	//for open;
 
 /**************Macros************************/
@@ -40,17 +40,52 @@ typedef struct s_map
 	char **maparray;
 	int	mapcol;
 	int	mapline;
+	int	p_x;
+	int	p_y;
+	int	p_direct;
+	int	collect_nb;
 }t_map;
+
+
+typedef struct s_img
+{
+	void	*ptr;
+	int	w; //width of img
+	int	h;//height of img
+} t_img;
+
+typedef struct s_img_set
+{
+	t_img	wall;
+	t_img	terrain;
+	t_img	collect;
+	t_img	exit;
+	t_img	start;
+	t_img	player_up;
+	t_img	player_down;
+	t_img	player_left;
+	t_img	player_right;
+} t_img_set;
+
+typedef struct s_play
+{
+    void    *mlx_self;
+    void    *mlx_win;
+    t_img_set	imgs;
+    t_map	*map;
+}t_play;
+
+/*struct	mapcharacters
+{
+	int wall;
+	int collect;
+	int start;
+	int exit;
+	int place;
+}mapcharacter;*/
 
 /*************************************************************/
 void    ft_map_exit(char *message, t_map *map);
 int	ft_checkmap(t_map *map, char *map_path);
 
 #endif
-
-/*tpyedef struct s_play
-{
-    void    *mlx_self;
-    void    *mlx_win;
-
-} t_play;*/

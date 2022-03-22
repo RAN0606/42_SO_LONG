@@ -6,7 +6,7 @@
 #    By: rliu <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/09 10:44:26 by rliu              #+#    #+#              #
-#    Updated: 2022/03/18 20:46:26 by rliu             ###   ########.fr        #
+#    Updated: 2022/03/22 19:15:12 by rliu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,11 @@ IFLAGS	= -I. -I./libft -I./mlx
 
 LFLAGS	= -L./libft -lft -L./mlx -lmlx -framework OpenGL -framework AppKit
 
-
 MLX_DIR	= ./mlx
 
-MLX		= libmlx.dylib
+MLX		= libmlx.a
 
-SRC		= init_image.c read_map.c
+SRC		= src/read_map.c src/init_image.c
 
 OBJ		= $(SRC:%.c=%.o)
 
@@ -52,13 +51,13 @@ clean:
 			rm -rf $(OBJ)
 
 ifeq ($(shell uname), linux)
-fclean:		MLX_DIR = ./mlx_linux
-fclean:		MLX = libmlx.a
+fclean:	MLX_DIR = ./mlx_linux
+fclean:	MLX = libmlx.a
 endif
 
 fclean:		clean
 			$(MAKE) -C libft fclean
-			$(MAKE) -C $(MLX_DIR) fclean
+			$(MAKE) -C $(MLX_DIR) clean
 			rm -rf $(MLX)
 			rm -rf $(NAME)
 
